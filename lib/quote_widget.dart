@@ -57,7 +57,7 @@ class QuoteWidget extends StatelessWidget {
   }
 
   buildBottomRowChildren(BuildContext context) {
-    var showOpenIcon = true;
+    var showOpenIcon = _onOpenClicked != null;
     var showFavoriteIcon = false;
     var bottomRowChildren = <Widget>[];
 

@@ -24,7 +24,7 @@ class TronaldRepositoryRemote implements TronaldRepository {
     final json = _decoder.convert(response.body);
     final List<dynamic> tagsJson = json['_embedded']['tags'];
 
-    return tagsJson.map((quoteJson) => Quote.fromMap(quoteJson));
+    return tagsJson.map((quoteJson) => Quote.fromMap(quoteJson)).toList();
   }
 
   @override

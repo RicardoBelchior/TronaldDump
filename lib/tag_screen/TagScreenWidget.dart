@@ -1,32 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:tronald_dump/main_screen/RandomQuoteWidget.dart';
-import 'package:tronald_dump/main_screen/TagsWidget.dart';
-import 'package:tronald_dump/strings.dart';
+import 'package:tronald_dump/tag_screen/QuotesListWidget.dart';
 
-
-class TagScreenWidget extends StatefulWidget {
-
+class TagScreenWidget extends StatelessWidget {
   final String tag;
 
   const TagScreenWidget({Key key, this.tag}) : super(key: key);
 
   @override
-  TagScreenWidgetState createState() {
-    return new TagScreenWidgetState();
-  }
-}
-
-class TagScreenWidgetState extends State<TagScreenWidget> {
-
-  //TODO create view state, create presenter, refactor QuoteCard and add it here as a list
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Topic Screen"),
-
+          title: Text(tag),
         ),
-        body: Text("TAG: ${widget.tag}"));
+        body: QuotesListWidget(tag: tag));
   }
 }

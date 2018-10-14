@@ -8,16 +8,9 @@ class Quote {
   const Quote(this.id, this.text, this.url, this.appearedAt, {this.tags});
 
   factory Quote.fromMap(Map<String, dynamic> map) {
-    print("---------------");
-    print("---------------");
-    print(map);
-    print("---------------");
-
     Map<String, dynamic> embedded = map['_embedded'];
     List<dynamic> sources = embedded['source'];
     final url = sources.first['url'];
-
-    print("APPEARED AT: ${map['appeared_at']}");
     DateTime appearedAt = DateTime.parse(map['appeared_at']);
 
     return Quote(
