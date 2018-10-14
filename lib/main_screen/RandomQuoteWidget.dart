@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tronald_dump/data/quote.dart';
 import 'package:tronald_dump/main_screen/RandomQuotePresenter.dart';
-import 'package:tronald_dump/strings.dart';
-import 'package:intl/intl.dart';
+import 'package:tronald_dump/quote_widget.dart';
 
 class RandomQuoteWidget extends StatefulWidget {
   @override
@@ -53,57 +52,14 @@ class _RandomQuoteWidgetState extends State<RandomQuoteWidget>
     return Card(child: Center(child: Text("Oops: ${_viewState.error}")));
   }
 
-  Card _buildQuote(Quote quote) {
-    return Card(
-        child: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Row(children: <Widget>[
-            Expanded(
-                child: Text(quote.text,
-                    textAlign: TextAlign.start,
-                    style: Theme.of(context).textTheme.subhead)),
-            IconButton(
-              icon: Icon(Icons.shuffle),
-              tooltip: Strings.random_quote,
-              onPressed: () {
-                _presenter.onRandomButtonClicked();
-              },
-            )
-          ]),
-        ),
-        Row(
-          children: <Widget>[
-            Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Text(getFormattedDate(quote))),
-            Expanded(
-              child: ButtonTheme.bar(
-                // make buttons use the appropriate styles for cards
-                child: ButtonBar(
-                  children: <Widget>[
-//                    IconButton(
-//                        icon: Icon(Icons.favorite_border),
-//                        tooltip: Strings.favorite,
-//                        onPressed: () {
-//                          _presenter.onLikeButtonClicked(_qupte);
-//                        }),
-                    IconButton(
-                        icon: Icon(Icons.open_in_new),
-                        tooltip: Strings.view_quote,
-                        onPressed: () {
-                          _presenter.onViewQuoteButtonClicked(quote);
-                        }),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ],
-    ));
+  Widget _buildQuote(Quote quote) {
+    var _onShuffleClicked = () {
+      _presenter.onRandomButtonClicked();
+    };
+    var _onOpenClicked = () {
+      _presenter.onViewQuoteButtonClicked(_viewState.quote);
+    };
+    return QuoteWidget(_viewState.quote, _onShuffleClicked, _onOpenClicked, null);
   }
 
   @override
@@ -125,11 +81,6 @@ class _RandomQuoteWidgetState extends State<RandomQuoteWidget>
     setState(() {
       _viewState = _ViewState(true, null, null);
     });
-  }
-
-  String getFormattedDate(Quote quote) {
-    var formatter = new DateFormat("yyyy-MM-dd, HH:mm:ss");
-    return formatter.format(quote.appearedAt);
   }
 }
 
