@@ -17,6 +17,7 @@ class QuoteWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Theme.of(context).cardColor,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[

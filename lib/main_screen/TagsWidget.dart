@@ -140,11 +140,9 @@ class _ChipsTile extends StatelessWidget {
         ),
       ));
     }
-    return Card(
-        semanticContainer: false,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: cardChildren,
-        ));
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: cardChildren,
+    );
   }
 }

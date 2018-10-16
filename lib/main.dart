@@ -11,6 +11,8 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final ThemeData _tronaldTheme = _buildTheme(context);
+
     return MaterialApp(
       title: 'Tronald Dump',
       theme: _tronaldTheme,
@@ -19,9 +21,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-final ThemeData _tronaldTheme = _buildTheme();
-
-ThemeData _buildTheme() {
+ThemeData _buildTheme(BuildContext context) {
   return ThemeData(
-      brightness: Brightness.light, primaryColor: Colors.lightGreen);
+      brightness: Brightness.light,
+      primaryColor: Colors.orange,
+      primaryColorDark: Colors.deepOrange,
+      accentColor: Colors.deepPurple,
+      cardColor: Colors.grey[100],
+      chipTheme: ChipTheme.of(context).copyWith(backgroundColor: Colors.orange[300]));
 }

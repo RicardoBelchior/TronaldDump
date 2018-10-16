@@ -55,11 +55,11 @@ class QuotesListState extends State<QuotesListWidget>
   }
 
   Widget _createLoadingWidget() {
-    return Text("Loading");
+    return Center(child: CircularProgressIndicator());
   }
 
   Widget _buildErrorWidget() {
-    return Text("Error ${_viewState.error}");
+    return Center(child: Text("Error ${_viewState.error}"));
   }
 
   Widget _buildQuotes(List<Quote> quotes) {

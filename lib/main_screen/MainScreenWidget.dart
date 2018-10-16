@@ -33,7 +33,7 @@ class MainScreenWidget extends StatelessWidget {
   Widget _createWelcomeWidget(BuildContext context) {
     return Center(
         child: Column(children: [
-      Text(Strings.welcome1, style: Theme.of(context).textTheme.display2),
+      //Text(Strings.welcome1, style: Theme.of(context).textTheme.display2),
       Padding(
         child: Text(Strings.welcome2, style: Theme.of(context).textTheme.title),
         padding: EdgeInsets.all(8.0),
