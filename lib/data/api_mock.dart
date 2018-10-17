@@ -27,7 +27,7 @@ class TronaldRepositoryMock implements TronaldRepository {
         tags: [tagHillary, tagTedCruz]),
     Quote("id-4", "stupid quote #4", "quote url 4", DateTime.parse("20120610"),
         tags: [tagJebBush, tagMarcoRubio, tagMexico]),
-    Quote("id-5", "stupid quote #5", "quote url 5", DateTime.parse("20121218"), tags: null),
+    Quote("id-5", "stupid quote #5", "quote url 5", DateTime.parse("20121218"), tags: []),
   ];
 
   @override

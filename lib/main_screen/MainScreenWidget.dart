@@ -8,7 +8,7 @@ class MainScreenWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tronald Dump"),
+          title: Text(Strings.app_bar_title),
         ),
         body: _createContent(context));
   }

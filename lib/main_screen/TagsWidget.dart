@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tronald_dump/main_screen/TagsWidgetPresenter.dart';
 import 'package:tronald_dump/routes.dart';
+import 'package:tronald_dump/strings.dart';
 
 class TagsWidget extends StatefulWidget {
   @override
@@ -68,17 +69,17 @@ class TagsWidgetState extends State<TagsWidget> implements TagsViewContract {
   }
 
   Widget _createLoadingWidget() {
-    return Text("Loading");
+    return Text(Strings.loading);
   }
 
   Widget _buildErrorWidget() {
-    return Text("Error ${_viewState.error}");
+    return Text(Strings.error(_viewState.error));
   }
 
   Widget _buildTags(List<String> tags) {
-    return _ChipsTile(
+    return ChipsTile(
         key: Key("key-1"),
-        label: "Trending topics",
+        label: Strings.trending_topics,
         children: tags.map(_createChip).toList());
   }
 
@@ -97,8 +98,8 @@ class TagsWidgetState extends State<TagsWidget> implements TagsViewContract {
   }
 }
 
-class _ChipsTile extends StatelessWidget {
-  const _ChipsTile({
+class ChipsTile extends StatelessWidget {
+  const ChipsTile({
     Key key,
     this.label,
     this.children,
